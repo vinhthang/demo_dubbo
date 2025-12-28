@@ -1,0 +1,18 @@
+syntax = "proto3";
+option java_multiple_files = true;
+
+import "google/protobuf/timestamp.proto";
+
+package com.example.demo.message;
+
+message GreeterRequest {
+  string name = 1;
+}
+message GreeterReply {
+  string message = 1;
+  google.protobuf.Timestamp timestamp = 2;
+}
+
+service Greeter{
+  rpc greet(GreeterRequest) returns (GreeterReply);
+}

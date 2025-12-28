@@ -39,6 +39,11 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java</artifactId>
+            </dependency>
+
+            <dependency>
                 <groupId>com.example</groupId>
                 <artifactId>demo-api</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
