@@ -15,4 +15,5 @@ message GreeterReply {
 
 service Greeter{
   rpc greet(GreeterRequest) returns (GreeterReply);
+  rpc greetStream(GreeterRequest) returns (stream GreeterReply);
 }

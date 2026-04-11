@@ -1,4 +1,7 @@
 package com.example.demo.dubbo.api;
 
-public record Hello(String s, java.time.LocalDateTime now) {
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+public record Hello(String name, LocalDateTime time, String currentThread) implements Serializable {
 }

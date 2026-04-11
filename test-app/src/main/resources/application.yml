@@ -1,11 +1,23 @@
-server:
-  port: 9090
+spring:
+  jmx:
+    enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 dubbo:
   application:
     logger: slf4j
     name: TestApp
+    protocol: tri
   registry:
-    address: zookeeper://${zookeeper.address:127.0.0.1}:2181
+    address: nacos://${NACOS_SERVER_ADDRESS:127.0.0.1}:${NACOS_SERVER_PORT:8848}
+    register-mode: instance
+    username: nacos
+    password: nacos
+    parameters:
+      register-consumer-url: true
   protocol:
     name: tri
     port: -1

@@ -1,0 +1,9 @@
+server:
+  port: 9090
+dubbo:
+  application:
+    qos-enable: false
+  registry:
+    address: nacos://k3s-master.local:30848
+  protocol:
+    host: 172.18.224.1
