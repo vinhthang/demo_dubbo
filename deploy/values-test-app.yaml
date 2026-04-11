@@ -7,7 +7,7 @@ replicaCount: 3
 ingress:
   enabled: true
   hosts:
-    - host: test-app.local
+    - host: test-app.apps.local
       paths:
         - path: /
           pathType: ImplementationSpecific
