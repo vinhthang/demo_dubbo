@@ -1,0 +1,7 @@
+image:
+  repository: demo-service
+  tag: "latest"
+
+replicaCount: 5
+
+# No changes needed for Nacos as the chart defaults to middleware namespace

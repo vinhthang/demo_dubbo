@@ -1,0 +1,63 @@
+# Default values for dubbo-service.
+# This template is used for both demo-service and test-app.
+
+replicaCount: 1
+
+image:
+  registry: 192.168.100.1:5000
+  repository: demo-service
+  pullPolicy: Always
+  tag: "latest"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+# Nacos configuration
+nacos:
+  host: nacos-headless.middleware.svc.cluster.local
+  port: 8848
+
+# Dubbo settings
+dubbo:
+  port: 50051
+
+service:
+  type: ClusterIP
+  port: 8080        # Web/Actuator port
+  dubboPort: 50051  # Dubbo Triple port
+
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 512Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 256Mi
+
+# Actuator health probes
+probes:
+  enabled: true
+  livenessPath: /actuator/health/liveness
+  readinessPath: /actuator/health/readiness
+  initialDelaySeconds: 30
+  periodSeconds: 10
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+ingress:
+  enabled: false
+  className: "traefik"
+  annotations: {}
+    # kubernetes.io/ingress.class: traefik
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local

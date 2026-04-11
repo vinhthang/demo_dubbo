@@ -1,0 +1,17 @@
+image:
+  repository: test-app
+  tag: "latest"
+
+replicaCount: 3
+
+ingress:
+  enabled: true
+  hosts:
+    - host: test-app.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+
+# Overriding probes if the test-app has different health check paths
+# probes:
+#   livenessPath: /debug/health

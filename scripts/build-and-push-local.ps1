@@ -4,7 +4,7 @@ param(
     [string]$Module = "demo-service",
 
     [Parameter(Mandatory = $false)]
-    [string]$Registry = "localhost:5000",
+    [string]$Registry = "192.168.100.1:5000",
 
     [Parameter(Mandatory = $false)]
     [string]$Tag = "latest"
